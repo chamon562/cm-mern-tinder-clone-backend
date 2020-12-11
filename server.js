@@ -12,11 +12,12 @@ import mongoose from "mongoose";
 const app = express();
 // define a port using environmental varaiable 
 const port = process.env.PORT || 8000
+// copy and past connection url in a variable
+const connection_url = 'mongodb+srv://admin:RnwrJHKUfNmKoBt2@cluster0.dkfhd.mongodb.net/cm-tinderdb?retryWrites=true&w=majority'
 
 // Middlewares
 
-// DB config
-
+// DB config this is where we connect to our database
 // API endpoints
 // "/" will be the root, followed by the callback function
 app.get("/", (req, res)=>{
