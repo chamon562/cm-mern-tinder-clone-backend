@@ -4,7 +4,7 @@
 // "type": "module" & "scripts": { "start": "node server.js"}
 import express from "express";
 import mongoose from "mongoose";
-import Cors from "./cors";
+import Cors from "cors";
 // import our database structure
 // cards came from us calling it cards in dbCards.js export default mongoose.model('cards', cardSchema)
 import Cards from "./dbCards.js";
