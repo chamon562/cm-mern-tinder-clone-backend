@@ -18,9 +18,19 @@ const connection_url = 'mongodb+srv://admin:RnwrJHKUfNmKoBt2@cluster0.dkfhd.mong
 // Middlewares
 
 // DB config this is where we connect to our database
+// pass in perameters to our connections
+// these our paremeters to help smoothen out connection
+// because mongoose is under development and can stand evolving 
+// thats why this is needed to be added 
+mongoose.connect(connection_url, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+})
+
 // API endpoints
 // "/" will be the root, followed by the callback function
-app.get("/", (req, res)=>{
+app.get("/", (req, res) => {
     res.status(200).send("Hello Dev")
 })
 // Listner
