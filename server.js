@@ -20,6 +20,7 @@ const port = process.env.PORT || 8000
 const connection_url = 'mongodb+srv://admin:RnwrJHKUfNmKoBt2@cluster0.dkfhd.mongodb.net/cm-tinderdb?retryWrites=true&w=majority'
 
 // Middlewares
+app.use(express.json())
 
 // DB config this is where we connect to our database
 // pass in perameters to our connections
