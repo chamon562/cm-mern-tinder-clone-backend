@@ -4,10 +4,10 @@
 // "type": "module" & "scripts": { "start": "node server.js"}
 import express from "express";
 import mongoose from "mongoose";
+import Cors from "./cors";
 // import our database structure
 // cards came from us calling it cards in dbCards.js export default mongoose.model('cards', cardSchema)
-import Cards from './dbCards.js'
-
+import Cards from "./dbCards.js";
 
 // line up how application will look
 
@@ -15,13 +15,13 @@ import Cards from './dbCards.js'
 // *** create an instance ***
 const app = express();
 // define a port using environmental varaiable 
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 8000;
 // copy and past connection url in a variable
-const connection_url = 'mongodb+srv://admin:RnwrJHKUfNmKoBt2@cluster0.dkfhd.mongodb.net/cm-tinderdb?retryWrites=true&w=majority'
+const connection_url = 'mongodb+srv://admin:RnwrJHKUfNmKoBt2@cluster0.dkfhd.mongodb.net/cm-tinderdb?retryWrites=true&w=majority';
 
 // Middlewares
-app.use(express.json())
-
+app.use(express.json());
+app.use(Cors());
 // DB config this is where we connect to our database
 // pass in perameters to our connections
 // these our paremeters to help smoothen out connection
