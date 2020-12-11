@@ -4,6 +4,10 @@
 // "type": "module" & "scripts": { "start": "node server.js"}
 import express from "express";
 import mongoose from "mongoose";
+// import our database structure
+// cards came from us calling it cards in dbCards.js export default mongoose.model('cards', cardSchema)
+import Cards from './dbCards.js'
+
 
 // line up how application will look
 
@@ -32,6 +36,13 @@ mongoose.connect(connection_url, {
 // "/" will be the root, followed by the callback function
 app.get("/", (req, res) => {
     res.status(200).send("Hello Dev")
+})
+// app.post is an uploading method defined an endpoint '/tinder/card' 
+// callback function (req, res)
+app.post("/tinder/card", (req,res) =>{
+    // first we want to save the request body into a variable
+    const dbCard = req.body
+    res.status(200).send()
 })
 // Listner
 app.listen(port, () => console.log(`listening on localhost: ${port}`))
