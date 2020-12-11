@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 // app.post is an uploading method defined an endpoint '/tinder/card' 
 // post is used to push information into our database
 // callback function (req, res)
-app.post("/tinder/card", (req, res) => {
+app.post("/tinder/cards", (req, res) => {
     // first we want to save the request body into a variable
     const dbCard = req.body
     // this will be a function that creates a new document pass in dbCards
@@ -56,6 +56,15 @@ app.post("/tinder/card", (req, res) => {
     });
 });
 
-
+// getting info from /tinder/cards
+app.get("/tinder/cards", (req,res) =>{
+    Cards.find((err, data) => {
+        if (err) {
+            res.status(500).send(err)
+        } else {
+            res.status(200).send(data)
+        }
+    });
+});
 // Listner
 app.listen(port, () => console.log(`listening on localhost: ${port}`))
