@@ -33,16 +33,29 @@ mongoose.connect(connection_url, {
 })
 
 // API endpoints
+// get is to get information from our database
 // "/" will be the root, followed by the callback function
 app.get("/", (req, res) => {
     res.status(200).send("Hello Dev")
 })
 // app.post is an uploading method defined an endpoint '/tinder/card' 
+// post is used to push information into our database
 // callback function (req, res)
-app.post("/tinder/card", (req,res) =>{
+app.post("/tinder/card", (req, res) => {
     // first we want to save the request body into a variable
     const dbCard = req.body
-    res.status(200).send()
-})
+    // this will be a function that creates a new document pass in dbCards
+    // and a callback function with an error and data perameter
+    // to see if this works define another endoint which will download the data from the database
+    Cards.create(dbCard, (err, data) => {
+        if (err) {
+            res.status(500).send(err)
+        } else {
+            res.status(200).send(data)
+        }
+    });
+});
+
+
 // Listner
 app.listen(port, () => console.log(`listening on localhost: ${port}`))
